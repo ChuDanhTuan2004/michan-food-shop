@@ -11,7 +11,13 @@ body {
   padding: 20px;
 }
 
+/* Using :target to show correct product */
 .product-detail {
+  display: none; /* Hide all product details by default */
+}
+
+/* Show only the targeted product detail section */
+.product-detail:target {
   display: flex;
   background: white;
   border-radius: 10px;
@@ -91,6 +97,7 @@ body {
   flex: 2;
 }
 
+/* No-JavaScript quantity selectors */
 .quantity-selector {
   display: flex;
   align-items: center;
@@ -106,13 +113,20 @@ body {
   cursor: pointer;
 }
 
-.quantity-selector input {
+.quantity-value {
+  display: inline-block;
   width: 60px;
   height: 40px;
   border: 1px solid #ddd;
   margin: 0 10px;
   text-align: center;
   font-size: 16px;
+  line-height: 40px;
+}
+
+/* Add to cart form (works without JS) */
+.add-to-cart-form {
+  margin-top: 20px;
 }
 
 .add-to-cart {
@@ -143,7 +157,32 @@ body {
   text-decoration: underline;
 }
 
+/* Show not-found section when a non-existent product is targeted */
+#not-found {
+  display: none;
+}
+
+#not-found:target {
+  display: block;
+  text-align: center;
+  padding: 50px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Make sure #not-found shows when no other product matches */
+#not-found:target ~ .product-detail:target {
+  display: none;
+}
+
+/* Only show similar products for targeted product */
 .similar-products {
+  display: none;
+}
+
+.product-detail:target + .similar-products {
+  display: block;
   margin-top: 40px;
 }
 

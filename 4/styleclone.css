@@ -251,6 +251,31 @@ aside img {
     width: 100%;
 }
 
+/* Hide checkbox inputs */
+.menu-item input[type="checkbox"] {
+    display: none;
+}
+
+/* Show submenu when checkbox is checked */
+.menu-item input[type="checkbox"]:checked ~ .hidden-categories {
+    display: block;
+}
+
+/* Rotate arrow when checkbox is checked */
+.menu-item input[type="checkbox"]:checked + .menu-label .arrow {
+    transform: rotate(90deg);
+}
+
+/* Hide subcategory items by default */
+.hidden-categories {
+    display: none;
+}
+
+/* Show subcategory menu when its checkbox is checked */
+.hidden-categories input[type="checkbox"]:checked + .submenu-label + .submenu {
+    display: block;
+}
+
 .menu-item {
     background: #f5f5f5;
     padding: 15px;
@@ -437,6 +462,22 @@ img {
   }
 
 /* Product Detail Page Styles */
+.product-detail {
+    display: none;
+}
+
+.product-detail:target {
+    display: flex;
+}
+
+#not-found {
+    display: none;
+}
+
+#not-found:target {
+    display: block;
+}
+
 .product-detail {
     display: flex;
     max-width: 1200px;
